@@ -16,7 +16,7 @@
         </div>
       </nav>
       <div class="container-fluid">
-        <div class="main-title text-uppercase">Advanced and integrated mobility</div>
+        <div class="main-title text-uppercase d-flex align-items-center"><button id="fulscreenBtn"><img src="assets/img/icons/expand.svg" /></button> Advanced and integrated mobility</div>
         <div class="full-page">
           <div class="home-center d-flex text-center">
             <div>
@@ -32,28 +32,15 @@
                 <div class="home-icon-title">Archives</div>
               </a>
             </div>
-            
           </div>
-          
         </div>
-        
       </div>
-
-      
-
-              
-
       <footer id="footer">
-
         <div class="container-fluid height-fluid">
-        
           <div class="footer-content height-fluid d-flex">
-            <div class="fc-left">Saudi Aramco Mobility Center</div>
-            <div class="fc-right">
-            <button id="closeTouchpadModal" class="sa-btn">Home</button>
-
-            </div>
-
+            <div class="fc-left">Saudi Aramco Mobility Center <a class="home-btn" href="{{ url('/') }}">Home</a>
+              </div>
+            <div class="fc-right"></div>
           </div>
         </div>
       </footer>
@@ -112,16 +99,34 @@
 
 @push('css')
 <link rel="stylesheet" href="assets/css/signature.css" />
+<style type="text/css">
+  .home-btn {
+    color: #897a5b;
+    margin-left: 15px;
+    text-decoration: underline !important;
+  }
+  .home-btn:hover {
+    color: #6c5e42
+  }
+  .home-btn:active {
+    opacity: 0.7
+  }
+</style>
 @endpush
 
 @push('js')
 <script src="assets/js/canvas.js"></script>
+<script>
+
+
+</script>
 <script type="text/javascript">
   $(document).ready(function () {
       $("#openSignatureModal").on('click', function () {
         $("#signatureTouchpad").addClass('active');
         $("#signatureForm").removeClass('active');
         resizeCanvas();
+        // GoOutFullscreen();
       });
 
       // $("#saveSignature").on('click', function () {

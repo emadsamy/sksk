@@ -18,7 +18,7 @@
 
       <div class="timeline-container">
         <div class="container-fluid">
-          <div class="main-title text-uppercase">Advanced and integrated mobility</div>
+          <div class="main-title text-uppercase d-flex align-items-center"><button id="fulscreenBtn"><img src="assets/img/icons/expand.svg" /></button> Advanced and integrated mobility</div>
 
           <!-- Slider -->
           <div class="timeline-wrapper">
