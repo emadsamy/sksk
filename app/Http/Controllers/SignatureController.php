@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Validator;
 use App\Signature;
 use Storage;
+use DB;
+
 
 class SignatureController extends Controller
 {
@@ -58,5 +60,15 @@ class SignatureController extends Controller
         //     'data' => $data,
         //     'count' => $count
         // ]);
+    }
+
+
+    public function index() {
+        $signatures = DB::select('select * from signatures');
+        return view('admin',['signatures'=>$signatures]);
+     }
+     public function destroy($id) {
+        DB::delete('delete from signatures where id = ?',[$id]);
+        return view('/archives');
     }
 }

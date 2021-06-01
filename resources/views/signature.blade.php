@@ -32,14 +32,28 @@
                 <div class="home-icon-title">Archives</div>
               </a>
             </div>
+            
           </div>
+          
         </div>
+        
       </div>
+
+      
+
+              
+
       <footer id="footer">
+
         <div class="container-fluid height-fluid">
+        
           <div class="footer-content height-fluid d-flex">
             <div class="fc-left">Saudi Aramco Mobility Center</div>
-            <div class="fc-right"></div>
+            <div class="fc-right">
+            <button id="closeTouchpadModal" class="sa-btn">Home</button>
+
+            </div>
+
           </div>
         </div>
       </footer>

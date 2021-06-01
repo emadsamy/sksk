@@ -27,3 +27,8 @@ Route::get('/archives', 'SignatureController@view');
 
 Route::post('/signature', 'SignatureController@insertSignature');
 Route::get('/fetch-signatures', 'SignatureController@fetchSignature');
+
+
+
+Route::get('admin','SignatureController@index');
+Route::get('delete/{id}','SignatureController@destroy');
