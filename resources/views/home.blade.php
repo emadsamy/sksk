@@ -34,6 +34,7 @@
           </div>
         </div>
       </div>
+
       <footer id="footer">
         <div class="container-fluid height-fluid">
           <div class="footer-content height-fluid d-flex">
@@ -59,8 +60,8 @@
               <img src="assets/img/icons/play-vd.svg" class="img-fluid" />
             </button>
           </div>
-          <video id="videoPlayer">
-            <source src="https://cdn.emaarmisr.com/wp-content/uploads/2021/04/Belle-Vie-TEXT-TOP.mp4" type="video/mp4">
+          <video id="videoPlayer" loop>
+            <source src="{{ url('assets/img/aaa.mp4') }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
@@ -101,7 +102,7 @@ $("#videoPlayer").bind("ended", function () {
   $(".vid-overlay").addClass("active");
   $("#playVideoStream").find("img").attr("src", "assets/img/icons/play-vd.svg");
   // $("#videoPlayer").get(0).vid.pause();
-  $(".video-modal").fadeOut(400);
+  // $(".video-modal").fadeOut(400);
 });
 </script>
 @endpush
