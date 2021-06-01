@@ -194,7 +194,7 @@
                         <img src="{{ url('assets/img/icons/pier.svg') }}" class="pm-icon img-fluid" alt="" />
                         <div>
                           <div class="pm-title">Abu Ali</div>
-                          <div class="pm-date"></div>
+                          <div class="pm-date">Established in 1968</div>
                         </div>
                       </div>
 
@@ -202,7 +202,7 @@
                         <img src="{{ url('assets/img/icons/pier.svg') }}" class="pm-icon img-fluid" alt="" />
                         <div>
                           <div class="pm-title">Duba</div>
-                          <div class="pm-date"></div>
+                          <div class="pm-date">Established in 1970</div>
                         </div>
                       </div>
 
@@ -218,7 +218,7 @@
                         <img src="{{ url('assets/img/icons/pier.svg') }}" class="pm-icon img-fluid" alt="" />
                         <div>
                           <div class="pm-title">Jazan</div>
-                          <div class="pm-date"></div>
+                          <div class="pm-date">Established in 1993</div>
                         </div>
                       </div>
                     </div>
