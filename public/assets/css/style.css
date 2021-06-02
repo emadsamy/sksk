@@ -460,7 +460,8 @@ nav .container-fluid {
 .video-wrapper {
   width: 100%;
   height: 100%;
-  padding: 0px;
+   padding: 40px;
+  display: flex;
   justify-content: center;
 }
 .video-wrapper video {
