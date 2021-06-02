@@ -460,8 +460,6 @@ nav .container-fluid {
 .video-wrapper {
   width: 100%;
   height: 100%;
-   padding: 42px;
-  display: flex;
   justify-content: center;
 }
 .video-wrapper video {
@@ -478,20 +476,7 @@ nav .container-fluid {
 .video-auto .vid-overlay.active {
     opacity: 1 !important;
 }
-.video-auto:hover .vid-overlay {
-    opacity: 1;
-}
-.vid-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 30px;
-  z-index: 10;
-  opacity: 0
-}
+
 .toggle-vidoe-play {
   width: 70px;
   cursor: pointer;
