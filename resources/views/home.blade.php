@@ -60,8 +60,14 @@
               <img src="assets/img/icons/play-vd.svg" class="img-fluid" />
             </button>
           </div>
+<<<<<<< HEAD
           <video id="videoPlayer" loop>
             <source src="{{ url('assets/img/aaa.mp4') }}" type="video/mp4">
+=======
+          <video id="videoPlayer">
+          
+            <source src="https://player.vimeo.com/video/557479190" type="video/mp4">
+>>>>>>> b77056a (test)
             Your browser does not support the video tag.
           </video>
         </div>
