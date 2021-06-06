@@ -487,7 +487,8 @@ nav .container-fluid {
 .close-video-btn {
   position: absolute;
   top: 30px;
-  right: 30px
+  right: 30px;
+  z-index: 30
 }
 .close-video-btn img {
   width: 20px
