@@ -47,27 +47,76 @@
   </div>
   <!-- Home Page -->
 
+  <div class="video-collection-modal">
+    <div class="vcm-wrapper">
+
+      <button id="closeVideoCollection" class="close-video-btn">
+        <img src="assets/img/icons/cancel.svg" class="img-fluid" />
+      </button>
+
+      <!-- Video Title -->
+      <div class="vcm-title">Videos</div>
+        
+      <div class="vcm-collection">
+
+        <!-- Add videos here -->
+        {{-- <button class="vcm-card">
+          <video>
+            <source src="http://api.directorstudio.me/uploads/sliders/2021-03-03-03-46-45-0603faf653b96e-original.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="vcm-overlay">
+            <div class="vcm-play">
+              <img src="assets/img/icons/play.svg" class="img-fluid" />
+            </div>
+          </div>
+        </button>
+
+        <button class="vcm-card">
+          <video>
+            <source src="http://api.directorstudio.me/uploads/sliders/2021-03-03-03-46-45-0603faf653b96e-original.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="vcm-overlay">
+            <div class="vcm-play">
+              <img src="assets/img/icons/play.svg" class="img-fluid" />
+            </div>
+          </div>
+        </button> --}}
+        <!-- Add videos here -->
+
+      </div>
+
+    </div>
+  </div>
+
   <!-- Video -->
   <div class="video-modal">
     <div class="video-wrapper">
+
       <button id="closeVideoStream" class="close-video-btn">
         <img src="assets/img/icons/cancel.svg" class="img-fluid" />
       </button>
-      <button id="reloadVideoStream" class="close-video-btn mt-5">
-        <img src="assets/img/icons/reload.svg" class="img-fluid" />
-      </button>
+
       <div class="video-container">
         <div class="video-auto">
-          <div class="vid-overlay">
-            <button id="playVideoStream" class="toggle-vidoe-play">
-              <img src="assets/img/icons/play-vd.svg" class="img-fluid" />
-            </button>
-          </div>
-          <video id="videoPlayer" loop autoplay>
-          <source src="{{ url('assets/img/aaa.mp4') }}" type="video/mp4">
 
+          <div class="vid-overlay-container">
+            <div class="vid-overlay">
+              <button id="playVideoStream" class="toggle-vidoe-play">
+                <img src="assets/img/icons/play-vd.svg" class="img-fluid" />
+              </button>
+              <button id="reloadVideoStream" class="toggle-vidoe-play">
+                <img src="assets/img/icons/reload.svg" class="img-fluid" />
+              </button>
+            </div>
+          </div>
+
+          <video id="videoPlayer" loop>
+            <source src="{{ url('assets/img/aaa.mp4') }}" type="video/mp4">
             Your browser does not support the video tag.
           </video>
+
         </div>
       </div>
     </div>
@@ -78,7 +127,12 @@
 @push('js')
 <script type="text/javascript">
   $("#openVideoStream").on('click', function () {
-    $(".video-modal").fadeIn(300);
+    if ($(".vcm-card")[0]){
+      $(".video-collection-modal").fadeIn(300);   
+    } else {
+      $(".video-modal").fadeIn(300);
+    }
+    $("body").css('overflowY', 'hidden');
   });
 
   $("#closeVideoStream").on('click', function () {
@@ -86,21 +140,36 @@
     vid.pause();
     $(".vid-overlay").addClass("active");
     $("#playVideoStream").find("img").attr("src", "assets/img/icons/play-vd.svg");
-    $(".video-modal").fadeOut(300);
+    // $(".video-modal").fadeOut(300);
+    // $(".video-collection-modal").fadeIn(300);
+    $("body").css('overflowY', 'auto');
+
+    if ($(".vcm-card")[0]){
+      $(".video-modal").fadeOut(300);
+      $(".video-collection-modal").fadeIn(300);
+    } else {
+      $(".video-modal").fadeOut(300);
+      $(".video-collection-modal").fadeOut(300);
+    }
+  });
+
+  $("#closeVideoCollection").on('click', function () {
+    $(".video-collection-modal").fadeOut(300);
+    $("body").css('overflowY', 'auto');
   });
 
   $("#playVideoStream").on("click", function () {
-  var vid = $("#videoPlayer").get(0);
-  if (vid.paused) {
-    vid.play();
-    $(".vid-overlay").removeClass("active");
-    $(this).find("img").attr("src", "assets/img/icons/pause-vd.svg");
-  } else {
-    vid.pause();
-    $(".vid-overlay").addClass("active");
-    $(this).find("img").attr("src", "assets/img/icons/play-vd.svg");
-  }
-});
+    var vid = $("#videoPlayer").get(0);
+    if (vid.paused) {
+      vid.play();
+      $(".vid-overlay").removeClass("active");
+      $(this).find("img").attr("src", "assets/img/icons/pause-vd.svg");
+    } else {
+      vid.pause();
+      $(".vid-overlay").addClass("active");
+      $(this).find("img").attr("src", "assets/img/icons/play-vd.svg");
+    }
+  });
 
 $("#videoPlayer").bind("ended", function () {
   $(".vid-overlay").addClass("active");
@@ -111,8 +180,18 @@ $("#videoPlayer").bind("ended", function () {
 
 $("#reloadVideoStream").on('click', function() {
   $('#videoPlayer')[0].load();
+  $('#videoPlayer')[0].play();
   $(".vid-overlay").addClass("active");
-  $("#playVideoStream").find("img").attr("src", "assets/img/icons/play-vd.svg");
+  $("#playVideoStream").find("img").attr("src", "assets/img/icons/pause-vd.svg");
+});
+
+$(".vcm-card").on('click', function () {
+  var video = $(this).find('source').attr('src');
+  var vid = $("#videoPlayer").get(0);
+  vid.play();
+  $("#videoPlayer").attr('src', video);
+  $(".video-collection-modal").fadeOut(300);
+  $(".video-modal").fadeIn(300);
 });
 </script>
 @endpush
