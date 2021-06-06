@@ -464,17 +464,20 @@ nav .container-fluid {
 }
 .video-wrapper video {
   height: 100%;
-  width: 100%;
-  object-fit: cover;
+  max-width: 100%;
+  width: auto;
+  /*object-fit: cover;*/
 }
 .video-auto {
   display: inline-block;
   height: 100%;
-  width: 100%;
-  object-fit: cover;
+  position: relative;
 }
 .video-auto .vid-overlay.active {
     opacity: 1 !important;
+}
+.video-auto:hover .vid-overlay {
+    opacity: 1;
 }
 
 .toggle-vidoe-play {
@@ -483,9 +486,8 @@ nav .container-fluid {
 }
 .close-video-btn {
   position: absolute;
-  top: 50px;
-  right: 50px;
-  z-index: 20;
+  top: 30px;
+  right: 30px
 }
 .close-video-btn img {
   width: 20px
