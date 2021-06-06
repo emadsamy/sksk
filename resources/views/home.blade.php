@@ -108,5 +108,11 @@ $("#videoPlayer").bind("ended", function () {
   // $("#videoPlayer").get(0).vid.pause();
   // $(".video-modal").fadeOut(400);
 });
+
+$("#reloadVideoStream").on('click', function() {
+  $('#videoPlayer')[0].load();
+  $(".vid-overlay").addClass("active");
+  $("#playVideoStream").find("img").attr("src", "assets/img/icons/play-vd.svg");
+});
 </script>
 @endpush
